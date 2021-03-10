@@ -1,13 +1,22 @@
 package bbgames;
 import java.util.*;
-public class RanBB {
+public class RanBB 
+{
 	//honestly, just using arraylist just now. i dont even does a 
 	//generate of the number or asking user input lol
-	public ArrayList<String> Hitspot;
+	public ArrayList<String> Hitspot2;
+	public int[] Hitspot1;
+	public int hitnum;
 	
-	public void assignHitspot (ArrayList<String> spot)
+	public void assignHitspot1 (int[] spot)
 	{
-		Hitspot = spot;
+		
+		int[] Hitspot1 = spot;
+	}
+	
+	public void assignHitspot2 (ArrayList<String> spot)
+	{
+		Hitspot2 = spot;
 	}
 	
 	static int RN ()
@@ -17,22 +26,41 @@ public class RanBB {
 		return ms;
 	}
 	
-public String checker (String userinput)
+public String checker1 (String userinput)
 {
+	int guess = Integer.parseInt(userinput);
 	String result = "missed";
-	int indexs = Hitspot.indexOf(userinput);
-	if (indexs >= 0)
+	for (int cell : Hitspot1)
 	{
-		Hitspot.remove(indexs);
-		if (Hitspot.isEmpty())
+	if (guess == cell )
 		{
-			result = "kill";
+		result = "hit";
+		hitnum++;
+		break;
+		
 		}
-		else 
-		{ 
-			result = "hit"; 
-		}
+		
 	}
+	return result;
+}
+	
+public String checker2 (String userinput)
+	{
+		String result = "missed";
+		int indexs = Hitspot2.indexOf(userinput);
+		if (indexs >= 0)
+		{
+			Hitspot2.remove(indexs);
+			if (Hitspot2.isEmpty())
+			{
+				result = "kill";
+			}
+			else 
+			{ 
+				result = "hit"; 
+			}
+		}
+	
 	return result;
 }
 }
