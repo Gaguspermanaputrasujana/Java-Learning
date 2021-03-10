@@ -5,11 +5,17 @@ public class MainBB
 	
 	public static void main(String[] args) 
 	{
-		
-		int p = MainBB.guess(10);
-		System.out.print(p + " ");
-		System.out.print( RanBB.RN());
-
+		GameInput Input = new GameInput();
+	boolean alive = true;
+	
+	while (alive == true)
+	{
+		String guess = Input.GetInput(" Enter your guess");
+		guess = guess + " bolerian";
+		System.out.print(guess);
+		alive = false;
+	}
+	
 	
 	}
 	public static int guess(int imo)
